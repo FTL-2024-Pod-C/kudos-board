@@ -23,7 +23,7 @@ function NavBar() {
               <button>Inspiration</button>
             </li>
             <li class>
-              <button>Add Card</button>
+              <button className="addButton">Add Card</button>
             </li>
           </ul>
         </div>
