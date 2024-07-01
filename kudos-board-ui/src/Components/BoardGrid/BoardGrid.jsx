@@ -1,9 +1,15 @@
 import React from 'react'
+import BoardCard from '../BoardCard/BoardCard'
 
-function BoardGrid() {
+const BoardGrid = () => {
   return (
-    <div>BoardGrid</div>
+    <>
+     <div className="board-grid">
+          <BoardCard title="Board" img=""/>
+     </div>
+    </>
   )
 }
 
 export default BoardGrid
+

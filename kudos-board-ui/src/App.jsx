@@ -1,6 +1,7 @@
 import React from 'react'
 import "./App.css";
 import Header from "./Components/Header/Header.jsx";
+import BoardGrid from './Components/BoardGrid/BoardGrid.jsx';
 
 function App() {
 
@@ -8,6 +9,7 @@ function App() {
     <>
       <div>
         <Header title="Kudos Board"/>
+        <BoardGrid />
       </div>
     </>
   )
