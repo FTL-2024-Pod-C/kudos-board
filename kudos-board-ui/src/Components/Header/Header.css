@@ -1,3 +1,13 @@
 .app-header {
-    background-color: pink;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: stretch;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    text-align: left;
+    background: lightgray;
+    color: white;
+    font-size: 30px;
 }

@@ -4,9 +4,16 @@ import "./Header.css"
 const Header = (props) => {
     return (
     <>
-        <header className="app-header">
-            <h1>{props.title}</h1>
-        </header>
+        <div className="app-header">
+            <h1 className="child1">{props.title}</h1>
+            <input
+            className="child2"
+            type="text"
+            placeholder="Search"
+            // value={searchTerm}
+            // onChange={(e) => setSearchTerm(e.target.value)}
+            />
+        </div>
     </>
     )
 }
