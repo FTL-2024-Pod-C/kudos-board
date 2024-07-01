@@ -1,7 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react';
 import './NavBar.css';
+import Modal from '../Modal/Modal';
 
 function NavBar() {
+
+  const [isModalOpen, setIsModalOpen]= useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  }
+
   return (
     <nav class="SubNavbar">
       <div class="content">
@@ -22,8 +34,11 @@ function NavBar() {
             <li class>
               <button>Inspiration</button>
             </li>
-            <li class>
-              <button>Add Card</button>
+            <li>
+              <div>
+                <button className="addButton" onClick={openModal}>Add Card</button>
+                {isModalOpen && <Modal closeModal={closeModal} />}
+              </div>
             </li>
           </ul>
         </div>
