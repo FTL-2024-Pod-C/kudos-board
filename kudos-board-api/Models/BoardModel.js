@@ -6,13 +6,19 @@ const getAllBoards = async (filter = {}, orderBy = {}) => {
     return prisma.board.findMany({
         where: filter,
         orderBy: orderBy,
-      });
+        include:{
+            cards: true
+        }
+    });
 };
 
 
 const getBoardById = async (id) => {
     return prisma.board.findUnique({
-        where: {id: parseInt(id)}
+        where: {id: parseInt(id)},
+        include:{
+            order_items: true
+        }
     });
 };
 
