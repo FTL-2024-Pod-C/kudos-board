@@ -17,7 +17,7 @@ const getBoardById = async (id) => {
     return prisma.board.findUnique({
         where: {id: parseInt(id)},
         include:{
-            order_items: true
+            cards: true
         }
     });
 };
@@ -41,10 +41,31 @@ const deleteBoard = async (id) => {
     });
 };
 
+const addCardToBoard = async (boardId, cardData) => {
+    // creating the card to be added
+    return prisma.card.create({ 
+        data: { 
+            board_id: parseInt(boardId),
+            title: cardData.title,
+            description: cardData.description,
+            author: cardData.author,
+            gif: cardData.gif,
+        } 
+    });
+};
+
+const deleteCardFromBoard = async (boardId, cardId) => {
+    return prisma.card.delete({ 
+        where: {card_id: parseInt(cardId)}
+    });
+};
+
 module.exports = {
     getAllBoards,
     getBoardById,
     createBoard,
     updateBoard,
-    deleteBoard
+    deleteBoard,
+    addCardToBoard,
+    deleteCardFromBoard
 };

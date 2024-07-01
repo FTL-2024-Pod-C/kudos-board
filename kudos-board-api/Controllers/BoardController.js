@@ -87,10 +87,34 @@ const deleteBoard = async (req, res) => {
     }
 };
 
+const addCardToBoard = async (req, res) => {
+    try {
+      const card = await boardModel.addCardToBoard(req.params.board_id, req.body);
+      res.json(card);
+    } 
+    catch (error) {
+      console.error("Error adding card to board:", error);
+      res.status(500).json({ error: "Internal server error" });
+    }
+};
+
+const deleteCardFromBoard = async (req, res) => {
+    try {
+      const card = await boardModel.deleteCardFromBoard(req.params.board_id, req.params.card_id);
+      res.json(card);
+    } 
+    catch (error) {
+      console.error("Error deleting card from board:", error);
+      res.status(500).json({ error: "Internal server error" });
+    }
+};
+
 module.exports = {
     getAllBoards,
     getBoardById,
     createBoard,
     updateBoard,
-    deleteBoard
+    deleteBoard,
+    addCardToBoard,
+    deleteCardFromBoard
 };
