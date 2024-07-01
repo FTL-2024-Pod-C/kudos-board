@@ -4,7 +4,7 @@ import './Footer.css';
 const Footer = () => {
   return (
     <footer className="footer">
-        <p>© Kudoboard</p>
+        <p>© Kudoboard By: Madel Sibal, Karina Perez, Julia Chaidez</p>
     </footer>
   );
 }
