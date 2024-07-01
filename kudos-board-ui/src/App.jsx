@@ -11,8 +11,8 @@ function App() {
     <>
       <div>
         <Header title="Kudos Board"/>
-        <BoardGrid />
         <NavBar />
+        <BoardGrid />
         <Footer />
       </div>
     </>
