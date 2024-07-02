@@ -2,8 +2,12 @@ import React, { useState } from 'react';
 import './NavBar.css';
 import Modal from '../Modal/Modal';
 
-function NavBar() {
 
+
+
+function NavBar(activeCategory, setActiveCategory) {
+
+  const categories = ["All", "Recent", "Celebration", "Thank You", "Inspiration"];
   const [isModalOpen, setIsModalOpen]= useState(false);
 
   const openModal = () => {
@@ -19,27 +23,15 @@ function NavBar() {
       <div class="content">
         <div class = "row">
           <ul class="category-menu">
-            <li class="is-active">
-              <button>All</button>
-            </li>
-            <li class>
-              <button>Recent</button>
-            </li>
-            <li class>
-              <button>Celebration</button>
-            </li>
-            <li class>
-              <button>Thank You</button>
-            </li>
-            <li class>
-              <button>Inspiration</button>
-            </li>
-            <li>
+            {categories.map((cat) => (
+                <li className={activeCategory === cat ? "is-active" : ""} key={cat}>
+                  <button onClick={() => setActiveCategory(cat)}>{cat}</button>
+                </li>
+            ))}
               <div>
                 <button className="addButton" onClick={openModal}>Add Card</button>
                 {isModalOpen && <Modal closeModal={closeModal} />}
               </div>
-            </li>
           </ul>
         </div>
       </div>  
