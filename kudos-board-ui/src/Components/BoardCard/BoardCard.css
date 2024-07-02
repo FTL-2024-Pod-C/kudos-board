@@ -1,0 +1,34 @@
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    width: 300px;
+    border-radius: 5px;
+    padding: 10px;
+    background: linear-gradient(to bottom, #f9f9f9, #f0f0f0);
+    margin-bottom: 20px;
+    overflow: hidden;
+    font-family: "Times New Roman", Times, serif;
+    
+}
+.card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
+}
+
+.boardBtn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 10px;
+}
+
+#boardTitle {
+    text-align: center;
+}
