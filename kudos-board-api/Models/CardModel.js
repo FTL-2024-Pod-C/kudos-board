@@ -34,10 +34,17 @@ const deleteCard = async (id) => {
     });
 };
 
+const getCardsByBoardId = async (boardId) => {
+    return prisma.card.findMany({
+        where: {board_id: parseInt(boardId)}
+    });
+};
+
 module.exports = {
     getAllCards,
     getCardById,
     createCard,
     updateCard,
-    deleteCard
+    deleteCard,
+    getCardsByBoardId
 };
