@@ -26,4 +26,4 @@ return (
     )
 }
 
-export default BoardCard
+export default BoardCard;

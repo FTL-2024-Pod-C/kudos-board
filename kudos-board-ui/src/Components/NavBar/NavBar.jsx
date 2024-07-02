@@ -5,7 +5,7 @@ import Modal from '../Modal/Modal';
 
 
 
-function NavBar(activeCategory, setActiveCategory) {
+const NavBar = ({activeCategory, setActiveCategory}) => {
 
   const categories = ["All", "Recent", "Celebration", "Thank You", "Inspiration"];
   const [isModalOpen, setIsModalOpen]= useState(false);
@@ -19,10 +19,10 @@ function NavBar(activeCategory, setActiveCategory) {
   }
 
   return (
-    <nav class="SubNavbar">
-      <div class="content">
-        <div class = "row">
-          <ul class="category-menu">
+    <nav className="SubNavbar">
+      <div className="content">
+        <div className = "row">
+          <ul className="category-menu">
             {categories.map((cat) => (
                 <li className={activeCategory === cat ? "is-active" : ""} key={cat}>
                   <button onClick={() => setActiveCategory(cat)}>{cat}</button>
