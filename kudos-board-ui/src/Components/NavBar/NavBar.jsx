@@ -5,7 +5,7 @@ import Modal from '../Modal/Modal';
 
 
 
-const NavBar = ({activeCategory, setActiveCategory}) => {
+const NavBar = ({createNewBoard, activeCategory, setActiveCategory}) => {
 
   const categories = ["All", "Recent", "Celebration", "Thank You", "Inspiration"];
   const [isModalOpen, setIsModalOpen]= useState(false);
@@ -30,8 +30,10 @@ const NavBar = ({activeCategory, setActiveCategory}) => {
                 </li>
             ))}
               <div>
-                <button className="addButton" onClick={openModal}>Add Card</button>
-                {isModalOpen && <Modal closeModal={closeModal} />}
+                <button className="addButton" onClick={openModal}>Add Board</button>
+                {isModalOpen && <Modal closeModal={closeModal}
+                createNewBoard={createNewBoard}
+                />}
               </div>
           </ul>
           

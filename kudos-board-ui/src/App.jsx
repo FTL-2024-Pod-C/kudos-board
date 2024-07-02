@@ -43,6 +43,18 @@ function App() {
     ? boardsByCategory.filter((p) => p.title.toLowerCase().indexOf(searchInputValue.toLowerCase()) !== -1)
     : boardsByCategory
 
+  const createNewBoard = async (newBoard) => {
+    try {
+      const url = `${DEV_BASE_URL}/boards`;
+      const response = await axios.post(url, newBoard);
+      console.log(response.data);
+      setBoards([...boards, response.data]);
+    }
+    catch (error) {
+      console.error("Error creating a new board", error);
+    }
+  }
+
   return (
     <>
       <div className="App">
@@ -51,12 +63,12 @@ function App() {
             handleOnSearchInputChange={handleOnSearchInputChange}
         />
         <NavBar
+            createNewBoard={createNewBoard}
             activeCategory={activeCategory}
             setActiveCategory={setActiveCategory}
           />
         <BoardGrid 
           boards={boardsToShow}
-
         />
         <Footer />
       </div>

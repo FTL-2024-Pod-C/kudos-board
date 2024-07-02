@@ -2,10 +2,11 @@ import React from 'react'
 import BoardCard from '../BoardCard/BoardCard'
 
 const BoardGrid = ({boards}) => {
+  console.log(boards);
   return (
         <>
          <div className="board-grid">
-            {boards.map((board) => (
+            {boards?.map((board) => (
               <BoardCard 
                 key={board.id}
                 title={board.title} 
