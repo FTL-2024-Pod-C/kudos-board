@@ -18,7 +18,7 @@ function App() {
     const url = `${DEV_BASE_URL}/boards`;
     try {
       const response = await axios.get(url);
-      console.log(response);
+      console.log(response.data);
       setBoards(response.data);
     }
     catch (error) {
@@ -33,7 +33,7 @@ function App() {
       <div>
         <Header title="Kudos Board"/>
         <NavBar />
-        <BoardGrid />
+        <BoardGrid boards={boards}/>
         <Footer />
       </div>
     </>
