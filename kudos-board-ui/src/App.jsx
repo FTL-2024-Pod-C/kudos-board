@@ -1,16 +1,18 @@
 import React from 'react'
+import { useState, useEffect } from "react";
 import "./App.css";
 import axios from "axios";
 import Header from "./Components/Header/Header.jsx";
 import BoardGrid from './Components/BoardGrid/BoardGrid.jsx';
 import Footer from "./Components/Footer/Footer.jsx";
 import NavBar from "./Components/NavBar/NavBar.jsx";
-import {useState, useEffect} from "react";
 
 const DEV_BASE_URL = "http://localhost:3000"
 
 function App() {
 
+  const [searchInputValue, setSearchInputValue] = useState("");
+  const [activeCategory, setActiveCategory] = useState("All");
   const [boards, setBoards] = useState([]);
 
   useEffect (() => {
@@ -28,11 +30,21 @@ function App() {
     fetchBoards();
   }, [])
 
+  const handleOnSearchInputChange = (event) => {
+    setSearchInputValue(event.target.value);
+  };
+
   return (
     <>
-      <div>
-        <Header title="Kudos Board"/>
-        <NavBar />
+      <div className="App">
+        <Header title="Kudos Board"
+            searchInputValue={searchInputValue}
+            handleOnSearchInputChange={handleOnSearchInputChange}
+        />
+        <NavBar
+            activeCategory={activeCategory}
+            setActiveCategory={setActiveCategory}
+          />
         <BoardGrid boards={boards}/>
         <Footer />
       </div>
