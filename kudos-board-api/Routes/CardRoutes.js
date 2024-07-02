@@ -6,6 +6,8 @@ router.get("/", cardController.getAllCards);
 
 router.get("/:id", cardController.getCardById);
 
+router.get("/board/:board_id", cardController.getCardsByBoardId);
+
 router.post("/", cardController.createCard);
 
 router.put("/:id", cardController.updateCard);
