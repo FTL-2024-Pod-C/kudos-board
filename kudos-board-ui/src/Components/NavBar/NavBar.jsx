@@ -22,6 +22,7 @@ const NavBar = ({activeCategory, setActiveCategory}) => {
     <nav className="SubNavbar">
       <div className="content">
         <div className = "row">
+
           <ul className="category-menu">
             {categories.map((cat) => (
                 <li className={activeCategory === cat ? "is-active" : ""} key={cat}>
@@ -33,6 +34,7 @@ const NavBar = ({activeCategory, setActiveCategory}) => {
                 {isModalOpen && <Modal closeModal={closeModal} />}
               </div>
           </ul>
+          
         </div>
       </div>  
     </nav>

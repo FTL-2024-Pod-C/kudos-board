@@ -34,10 +34,19 @@ function App() {
     setSearchInputValue(event.target.value);
   };
 
+  const boardsByCategory =
+    Boolean(activeCategory) && activeCategory !== "All"
+      ? boards.filter((p) => p.category === activeCategory)
+      : boards
+
+  const boardsToShow = Boolean(searchInputValue)
+    ? boardsByCategory.filter((p) => p.title.toLowerCase().indexOf(searchInputValue.toLowerCase()) !== -1)
+    : boardsByCategory
+
   return (
     <>
       <div className="App">
-        <Header title="Kudos Board"
+        <Header
             searchInputValue={searchInputValue}
             handleOnSearchInputChange={handleOnSearchInputChange}
         />
@@ -45,7 +54,10 @@ function App() {
             activeCategory={activeCategory}
             setActiveCategory={setActiveCategory}
           />
-        <BoardGrid boards={boards}/>
+        <BoardGrid 
+          boards={boardsToShow}
+
+        />
         <Footer />
       </div>
     </>
