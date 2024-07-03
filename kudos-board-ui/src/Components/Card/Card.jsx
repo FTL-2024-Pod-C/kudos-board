@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import GIFCard from '../GIFCard/GIFCard'
 
 const Card = (props) => {
   const [upvoteCount, setUpvoteCount] = useState(0);
@@ -10,6 +11,7 @@ const Card = (props) => {
   return (
     <>
       <div>
+        <GIFCard imageSrc={props.card.gif}/>
         {/* <img src={props.img} alt={props.title} /> */}
         <h2 id="cardTitle">{props.title}</h2>
         <h3>{props.description}</h3>
