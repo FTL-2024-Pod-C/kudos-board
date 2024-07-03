@@ -88,8 +88,7 @@ ul {
 
     /* Appearance of the NavBar */
     .SubNavbar {
-        background-color: pink; /* Set SubNavbar background color to black */
-        border: 1px solid black;
+        background-color: white; /* Set SubNavbar background color to black */
     }
 
 /* Styling the Buttons */
@@ -113,12 +112,13 @@ ul {
     /* Category Buttons */
     .category-menu li button.categoryButton {
     display: flex;
-    background-color: #f0f0f0;
-    border: 2px solid #000000;
-    color: #000000;
-    padding: 8px 16px;
+    background-color: rgb(136, 184, 89);
+    border: 1px solid #000000;
+    color: white;
+    padding: 12px 20px 12px 20px;
     border-radius: 20px;
     cursor: pointer;
     transition: background-color 0.3s ease;
     font-size: 25px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     }
