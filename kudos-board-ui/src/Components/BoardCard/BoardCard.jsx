@@ -3,15 +3,6 @@ import "./BoardCard.css"
 
 const BoardCard = (props) => {
 
-// const deleteBoard = async () => {
-//     try {
-//         await axios.delete(`http://localhost:3000/boards/${boardId}`);
-//         navigate("/");
-//     } catch (error) {
-//         console.error("Error deleting the board:", error);
-//     }
-// };
-
 return (
     <>
         <div className="card">

@@ -2,9 +2,6 @@ import React, { useState } from 'react';
 import './NavBar.css';
 import Modal from '../Modal/Modal';
 
-
-
-
 const NavBar = ({createNewBoard, activeCategory, setActiveCategory}) => {
 
   const categories = ["All", "Recent", "Celebration", "Thank You", "Inspiration"];
