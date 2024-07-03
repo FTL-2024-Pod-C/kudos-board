@@ -40,7 +40,7 @@ const Modal = ({createNewBoard, closeModal }) => {
                     <select id="category" value={category} onChange={(e) => setCategory(e.target.value)}>
                         <option value="">Choose One</option>
                         <option value="celebration">Celebration</option>
-                        <option value="thank-you">Thank You</option>
+                        <option value="thank you">Thank You</option>
                         <option value="inspiration">Inspiration</option>
                     </select>
                     <label>Description: </label>
