@@ -1,7 +1,7 @@
 import React from 'react'
 import Card from '../Card/Card'
 
-const CardGrid = ({cards}) => {
+const CardGrid = ({cards, deleteCard}) => {
   return (
         <>
          <div className="card-grid">
@@ -12,6 +12,7 @@ const CardGrid = ({cards}) => {
                 author={card.author}
                 description={card.description}
                 card={card}
+                deleteCard={deleteCard}
               />
             ))}
          </div>

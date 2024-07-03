@@ -54,6 +54,17 @@ const BoardPage = () => {
     }
   };
 
+  const deleteCard = async (cardId) => {
+    try {
+      const url = `${DEV_BASE_URL}/boards/${id}`;
+      await axios.delete(`${url}/cards/${cardId}`);
+      setCards(cards.filter((card) => card.card_id !== cardId));
+    }
+    catch (error) {
+      console.error("Error deleting a card", error);
+    }
+  };
+
   const openCardModal = () => {
     setIsCardModalOpen(true);
   };
@@ -73,7 +84,10 @@ const BoardPage = () => {
         {isCardModalOpen && <CardModal closeCardModal={closeCardModal}
                 createNewCard={createNewCard}
                 />}
-        <CardGrid cards={cards}/>
+        <CardGrid 
+          cards={cards}
+          deleteCard={deleteCard}
+        />
     </div>
     
     </>
