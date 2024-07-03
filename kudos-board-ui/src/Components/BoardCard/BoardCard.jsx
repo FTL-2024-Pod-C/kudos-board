@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import "./BoardCard.css"
 
 const BoardCard = (props) => {
@@ -14,14 +15,18 @@ const deleteBoard = async () => {
 
 return (
     <>
+   
         <div className="card">
             <img src={props.img} alt={props.title} />
             <h2 id="boardTitle">{props.title}</h2>
             <div className="boardBtn">
+            <Link to="/board">
                 <button>View Board</button>
+            </Link>
                 <button>Delete Board</button>
             </div>
         </div>
+   
     </>
     )
 }

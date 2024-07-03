@@ -13,49 +13,48 @@ const DEV_BASE_URL = "http://localhost:3000"
 const HomePage = () => {
 
     const [searchInputValue, setSearchInputValue] = useState("");
-  const [activeCategory, setActiveCategory] = useState("All");
-  const [boards, setBoards] = useState([]);
+    const [activeCategory, setActiveCategory] = useState("All");
+    const [boards, setBoards] = useState([]);
 
-  useEffect (() => {
-    const fetchBoards = async () => {
-    const url = `${DEV_BASE_URL}/boards`;
-    try {
-      const response = await axios.get(url);
-      console.log(response.data);
-      setBoards(response.data);
+    useEffect (() => {
+        const fetchBoards = async () => {
+        const url = `${DEV_BASE_URL}/boards`;
+        try {
+        const response = await axios.get(url);
+        console.log(response.data);
+        setBoards(response.data);
+        }
+        catch (error) {
+        console.error("Error fetching boards", error);
+        }
+        }
+        fetchBoards();
+    }, [])
+
+    const handleOnSearchInputChange = (event) => {
+        setSearchInputValue(event.target.value);
+    };
+
+    const boardsByCategory =
+        Boolean(activeCategory) && activeCategory !== "All"
+        ? boards.filter((p) => p.category === activeCategory)
+        : boards
+
+    const boardsToShow = Boolean(searchInputValue)
+        ? boardsByCategory.filter((p) => p.title.toLowerCase().indexOf(searchInputValue.toLowerCase()) !== -1)
+        : boardsByCategory
+
+    const createNewBoard = async (newBoard) => {
+        try {
+        const url = `${DEV_BASE_URL}/boards`;
+        const response = await axios.post(url, newBoard);
+        console.log(response.data);
+        setBoards([...boards, response.data]);
+        }
+        catch (error) {
+        console.error("Error creating a new board", error);
+        }
     }
-    catch (error) {
-      console.error("Error fetching boards", error);
-    }
-    }
-    fetchBoards();
-  }, [])
-
-  const handleOnSearchInputChange = (event) => {
-    setSearchInputValue(event.target.value);
-  };
-
-  const boardsByCategory =
-    Boolean(activeCategory) && activeCategory !== "All"
-      ? boards.filter((p) => p.category === activeCategory)
-      : boards
-
-  const boardsToShow = Boolean(searchInputValue)
-    ? boardsByCategory.filter((p) => p.title.toLowerCase().indexOf(searchInputValue.toLowerCase()) !== -1)
-    : boardsByCategory
-
-  const createNewBoard = async (newBoard) => {
-    try {
-      const url = `${DEV_BASE_URL}/boards`;
-      const response = await axios.post(url, newBoard);
-      console.log(response.data);
-      setBoards([...boards, response.data]);
-    }
-    catch (error) {
-      console.error("Error creating a new board", error);
-    }
-  }
-
 
   return (
     <>
