@@ -7,7 +7,8 @@
     align-items: center;
     padding: 30px;
     text-align: left;
-    background: lightgray;
+    background: rgb(136, 184, 89);
+
     color: white;
     font-size: 30px;
 }
