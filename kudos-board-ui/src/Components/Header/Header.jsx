@@ -7,6 +7,7 @@ const Header = ({searchInputValue, handleOnSearchInputChange}) => {
         <div className="app-header">
             <h1 className="child1">Kudos Board</h1>
             <input
+              className="searchBar"
               type="text"
               name="search"
               placeholder="Search"

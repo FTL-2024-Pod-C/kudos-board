@@ -23,11 +23,11 @@ const NavBar = ({createNewBoard, activeCategory, setActiveCategory}) => {
           <ul className="category-menu">
             {categories.map((cat) => (
                 <li className={activeCategory === cat ? "is-active" : ""} key={cat}>
-                  <button onClick={() => setActiveCategory(cat)}>{cat}</button>
+                  <button className="categoryButton" onClick={() => setActiveCategory(cat)}>{cat}</button>
                 </li>
             ))}
               <div>
-                <button className="addButton" onClick={openModal}>Add Board</button>
+                <button className="addButton" onClick={openModal}>+</button>
                 {isModalOpen && <Modal closeModal={closeModal}
                 createNewBoard={createNewBoard}
                 />}
