@@ -1,18 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react';
 
 const Card = (props) => {
+  const [upvoteCount, setUpvoteCount] = useState(0);
+
+  const handleUpvote = () => {
+    setUpvoteCount(prevCount => (prevCount === 0 ? 1 : 0));
+  };
+
   return (
     <>
-    <div>
+      <div>
         {/* <img src={props.img} alt={props.title} /> */}
         <h2 id="cardTitle">{props.title}</h2>
         <h3>{props.description}</h3>
         <h4>{props.author}</h4>
-        <button>Upvote:</button>
+        <button onClick={handleUpvote}>Upvote: {upvoteCount}</button>
         <button onClick={() => props.deleteCard(props.card.card_id)}>Delete</button>
-    </div>
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default Card
+export default Card;
