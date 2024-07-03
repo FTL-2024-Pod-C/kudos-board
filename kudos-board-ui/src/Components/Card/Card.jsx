@@ -9,7 +9,7 @@ const Card = (props) => {
         <h3>{props.description}</h3>
         <h4>{props.author}</h4>
         <button>Upvote:</button>
-        <button>Delete</button>
+        <button onClick={() => props.deleteCard(props.card.card_id)}>Delete</button>
     </div>
     </>
   )
