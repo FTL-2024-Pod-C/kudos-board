@@ -3,28 +3,24 @@ import './Modal.css'
 
 const Modal = ({createNewBoard, closeModal }) => {
 
-const [cards, setCards] = useState([]);
-const [title, setTitle] = useState('');
-const [category, setCategory] = useState('');
-const [author, setAuthor] = useState('');
-const [description, setDescription] = useState('');
+    const [title, setTitle] = useState('');
+    const [category, setCategory] = useState('');
+    const [author, setAuthor] = useState('');
+    const [description, setDescription] = useState('');
 
-
-
-const addCard = () => {
-    if (title && category && author && description) {
-        createNewBoard({title, category, author, description, image: "image" });
-        // setCards([...cards, { content: cardContent, category, author }]);
-        setTitle('');
-        setCategory('');
-        setAuthor('');
-        setDescription('');
-        closeModal();
-    } 
-    else {
-        alert("Please fill out all fields");
-    }
-};
+    const addBoard = () => {
+        if (title && category && author && description) {
+            createNewBoard({title, category, author, description, image: "image" });
+            setTitle('');
+            setCategory('');
+            setAuthor('');
+            setDescription('');
+            closeModal();
+        } 
+        else {
+            alert("Please fill out all fields");
+        }
+    };
 
   return (
     <>
@@ -52,16 +48,8 @@ const addCard = () => {
                     <label>Author: </label>
                     <input type="text" value={author} onChange={(e) => setAuthor(e.target.value)}/>
                 </form>
-                <button onClick={addCard}>Create</button>
+                <button onClick={addBoard}>Create</button>
             </div>
-
-            {cards.map((card, index) => (
-                <div key={index} className="card">
-                    <h4>{card.content}</h4>
-                    <p>Category: {card.category}</p>
-                    <p>Author: {card.author}</p>
-                </div>
-            ))}
             
         </div>
     </div>
