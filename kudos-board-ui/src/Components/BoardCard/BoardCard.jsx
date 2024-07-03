@@ -4,15 +4,6 @@ import "./BoardCard.css"
 
 const BoardCard = (props) => {
 
-const deleteBoard = async () => {
-    try {
-        await axios.delete(`http://localhost:3000/boards/${boardId}`);
-        navigate("/");
-    } catch (error) {
-        console.error("Error deleting the board:", error);
-    }
-};
-
 return (
     <>
    
@@ -23,7 +14,7 @@ return (
             <Link to="/board">
                 <button>View Board</button>
             </Link>
-                <button>Delete Board</button>
+            <button onClick={() => props.deleteBoard(props.board.id)}>Delete Board</button>
             </div>
         </div>
    

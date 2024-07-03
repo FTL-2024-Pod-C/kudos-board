@@ -37,7 +37,7 @@ const HomePage = () => {
 
     const boardsByCategory =
         Boolean(activeCategory) && activeCategory !== "All"
-        ? boards.filter((p) => p.category === activeCategory)
+        ? boards.filter((p) => p.category.toLowerCase() === activeCategory.toLowerCase())
         : boards
 
     const boardsToShow = Boolean(searchInputValue)
@@ -56,6 +56,17 @@ const HomePage = () => {
         }
     }
 
+    const deleteBoard = async (boardId) => {
+      try {
+        const url = `${DEV_BASE_URL}/boards`;
+        await axios.delete(`${url}/${boardId}`);
+        setBoards(boards.filter((board) => board.id !== boardId));
+      }
+      catch (error) {
+        console.error("Error deleting a board", error);
+      }
+    };
+
   return (
     <>
     <div className="App">
@@ -70,6 +81,7 @@ const HomePage = () => {
           />
         <BoardGrid 
           boards={boardsToShow}
+          deleteBoard={deleteBoard}
         />
         <Footer />
       </div>
