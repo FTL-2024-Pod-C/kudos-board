@@ -21,4 +21,3 @@ const BoardGrid = ({boards, deleteBoard}) => {
 }
 
 export default BoardGrid;
-
