@@ -3,14 +3,14 @@ import "./BoardCard.css"
 
 const BoardCard = (props) => {
 
-const deleteBoard = async () => {
-    try {
-        await axios.delete(`http://localhost:3000/boards/${boardId}`);
-        navigate("/");
-    } catch (error) {
-        console.error("Error deleting the board:", error);
-    }
-};
+// const deleteBoard = async () => {
+//     try {
+//         await axios.delete(`http://localhost:3000/boards/${boardId}`);
+//         navigate("/");
+//     } catch (error) {
+//         console.error("Error deleting the board:", error);
+//     }
+// };
 
 return (
     <>
@@ -19,7 +19,7 @@ return (
             <h2 id="boardTitle">{props.title}</h2>
             <div className="boardBtn">
                 <button>View Board</button>
-                <button>Delete Board</button>
+                <button onClick={() => props.deleteBoard(props.board.id)}>Delete Board</button>
             </div>
         </div>
     </>

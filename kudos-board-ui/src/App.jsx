@@ -53,7 +53,18 @@ function App() {
     catch (error) {
       console.error("Error creating a new board", error);
     }
-  }
+  };
+
+  const deleteBoard = async (boardId) => {
+    try {
+      const url = `${DEV_BASE_URL}/boards`;
+      await axios.delete(`${url}/${boardId}`);
+      setBoards(boards.filter((board) => board.id !== boardId));
+    }
+    catch (error) {
+      console.error("Error deleting a board", error);
+    }
+  };
 
   return (
     <>
@@ -69,6 +80,7 @@ function App() {
           />
         <BoardGrid 
           boards={boardsToShow}
+          deleteBoard={deleteBoard}
         />
         <Footer />
       </div>
