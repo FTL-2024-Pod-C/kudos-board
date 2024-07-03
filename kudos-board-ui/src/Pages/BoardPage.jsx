@@ -2,7 +2,8 @@ import React from 'react'
 import { Link, useParams } from 'react-router-dom';
 import {useState, useEffect} from 'react';
 import axios from "axios";
-import CardGrid from '../Components/CardGrid/CardGrid'
+import CardGrid from '../Components/CardGrid/CardGrid';
+import CardModal from '../Components/CardModal/CardModal';
 
 const DEV_BASE_URL = "http://localhost:3000"
 
@@ -10,6 +11,7 @@ const BoardPage = () => {
   const {id} = useParams();
   const [cards, setCards] = useState([]);
   const [board, setBoard] = useState([]);
+  const [isCardModalOpen, setIsCardModalOpen]= useState(false);
 
   useEffect (() => {
     fetchBoardInfo();
@@ -39,6 +41,26 @@ const BoardPage = () => {
       console.error("Error fetching board cards", error);
     }
   }
+
+  const createNewCard = async (newCard) => {
+    try {
+      const url = `${DEV_BASE_URL}/boards/${id}/cards`;
+      const response = await axios.post(url, newCard);
+      console.log(response.data);
+      setCards([...cards, response.data]);
+    }
+    catch (error) {
+      console.error("Error creating a new card", error);
+    }
+  };
+
+  const openCardModal = () => {
+    setIsCardModalOpen(true);
+  };
+
+  const closeCardModal = () => {
+    setIsCardModalOpen(false);
+  }
   
   return (
     <>
@@ -47,6 +69,10 @@ const BoardPage = () => {
         <Link to="/">
             <button>Back</button>
         </Link>
+        <button onClick={openCardModal}>Create Card</button>
+        {isCardModalOpen && <CardModal closeCardModal={closeCardModal}
+                createNewCard={createNewCard}
+                />}
         <CardGrid cards={cards}/>
     </div>
     
