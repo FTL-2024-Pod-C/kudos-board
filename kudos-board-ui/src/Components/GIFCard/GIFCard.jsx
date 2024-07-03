@@ -1,4 +1,5 @@
 import React from 'react';
+import './GIFCard.css'
 
 const GIFCard = (props) => {
     // add on click for choosing the gif
@@ -7,7 +8,7 @@ const GIFCard = (props) => {
         {/* <video onClick={() => props.setChosenGif(props.imageSrc)} autoPlay loop> 
             <source src={props.imageSrc} type="video/mp4"></source>
         </video> */}
-        <img onClick={() => props.handleClick()} src={props.imageSrc}/>
+        <img className="gif" onClick={() => props.handleClick()} src={props.imageSrc}/>
       </>
     );
   };
