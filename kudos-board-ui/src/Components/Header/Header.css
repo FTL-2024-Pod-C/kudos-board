@@ -12,6 +12,12 @@
     font-size: 30px;
 }
 
+.head {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 /* Styling for search bar */
 .searchBar {
     padding: 20px 30px; 
@@ -32,3 +38,10 @@
   .searchBar:hover {
     border-color: #0056b3;
   }
+
+img.logo {
+  width: 140px;
+  height: auto;
+  margin: 20px;
+}
+
