@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './NavBar.css';
 import Modal from '../Modal/Modal';
+import IconButton from '@mui/material/IconButton';
+import AddIcon from '@mui/icons-material/Add';
 
 const NavBar = ({createNewBoard, activeCategory, setActiveCategory}) => {
 
@@ -27,7 +29,10 @@ const NavBar = ({createNewBoard, activeCategory, setActiveCategory}) => {
                 </li>
             ))}
               <div>
-                <button className="addButton" onClick={openModal}>+</button>
+                {/* <button className="addButton" onClick={openModal}>+</button> */}
+                <IconButton aria-label="add" className="addButton" onClick={openModal}>
+                  <AddIcon />
+                </IconButton>
                 {isModalOpen && <Modal closeModal={closeModal}
                 createNewBoard={createNewBoard}
                 />}
