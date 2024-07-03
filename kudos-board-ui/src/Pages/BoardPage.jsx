@@ -4,6 +4,9 @@ import {useState, useEffect} from 'react';
 import axios from "axios";
 import CardGrid from '../Components/CardGrid/CardGrid';
 import CardModal from '../Components/CardModal/CardModal';
+import IconButton from '@mui/material/IconButton';
+import AddIcon from '@mui/icons-material/Add';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 const DEV_BASE_URL = "http://localhost:3000"
 
@@ -78,9 +81,16 @@ const BoardPage = () => {
     <div>
         <h1>Board Page</h1>
         <Link to="/">
-            <button>Back</button>
+            {/* <button>Back</button> */}
+            <IconButton aria-label="go back">
+              <ArrowBackIcon />
+            </IconButton>
         </Link>
-        <button onClick={openCardModal}>Create Card</button>
+        {/* <button onClick={openCardModal}>Create Card</button> */}
+        <IconButton aria-label="add" className="addButton" onClick={openCardModal}>
+          <AddIcon />
+        </IconButton>
+
         {isCardModalOpen && <CardModal closeCardModal={closeCardModal}
                 createNewCard={createNewCard}
                 />}

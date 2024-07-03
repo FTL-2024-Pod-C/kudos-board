@@ -1,5 +1,6 @@
 import React from 'react'
 import BoardCard from '../BoardCard/BoardCard'
+import "./BoardGrid.css"
 
 const BoardGrid = ({boards, deleteBoard}) => {
   console.log(boards);

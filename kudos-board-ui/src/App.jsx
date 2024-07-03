@@ -3,7 +3,6 @@ import HomePage from "./Pages/HomePage.jsx"
 import BoardPage from './Pages/BoardPage.jsx';
 import NoPage from "./Pages/NoPage.jsx"
 
-
 function App() {
 
   return (

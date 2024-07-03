@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './CardModal.css'
+import IconButton from '@mui/material/IconButton';
+import CloseIcon from '@mui/icons-material/Close';
 
 const CardModal = ({createNewCard, closeCardModal }) => {
 
@@ -28,7 +30,9 @@ const CardModal = ({createNewCard, closeCardModal }) => {
         <div className="card-modal-content" onClick={(e) => e.stopPropagation()}>
 
             <div className='card-modal-header'>
-                <button onClick={closeCardModal}>X</button>
+            <IconButton aria-label="close" onClick={closeCardModal}>
+                    <CloseIcon />
+                </IconButton>
             </div>
 
             <div className="card-modal-body">
