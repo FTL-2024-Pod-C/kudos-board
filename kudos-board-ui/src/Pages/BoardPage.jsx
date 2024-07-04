@@ -50,6 +50,7 @@ const BoardPage = () => {
 
   const createNewCard = async (newCard) => {
     try {
+      console.log("id is:", id)
       const url = `${DEV_BASE_URL}/boards/${id}/cards`;
       const response = await axios.post(url, newCard);
       console.log(response.data);

@@ -11,7 +11,7 @@ const BoardGrid = ({boards, deleteBoard}) => {
               <BoardCard 
                 key={board.id}
                 title={board.title} 
-                img="https://picsum.photos/200/300" // those nums are for sizing we can change to desried size!!!
+                img={`https://picsum.photos/200/300?random=${board.id}-${Math.floor(Math.random() * 1000)}`} // those nums are for sizing we can change to desried size!!!
                 deleteBoard={deleteBoard}
                 board={board}
               />
@@ -22,3 +22,4 @@ const BoardGrid = ({boards, deleteBoard}) => {
 }
 
 export default BoardGrid;
+

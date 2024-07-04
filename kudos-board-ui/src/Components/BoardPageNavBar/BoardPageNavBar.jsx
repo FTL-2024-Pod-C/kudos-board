@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import IconButton from '@mui/material/IconButton';
 import AddIcon from '@mui/icons-material/Add';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import Typography from '@mui/material/Typography';
 import "./BoardPageNavBar.css";
 
 const BoardPageNavBar = (props) => {
@@ -10,13 +11,13 @@ const BoardPageNavBar = (props) => {
     <>
         <div className = "boardPageButtons">
         <Link to="/">
-            <IconButton aria-label="go back">
-              <ArrowBackIcon />
-            </IconButton>
+        <Typography align="center">
+            <ArrowBackIcon />
+        </Typography>
         </Link>
-        <IconButton aria-label="add" className="addButton" onClick={props.openCardModal}>
-          <AddIcon />
-        </IconButton>
+        <Typography align="center" onClick={props.openCardModal}>
+            <AddIcon />
+        </Typography>
         </div>
     </>
     )
