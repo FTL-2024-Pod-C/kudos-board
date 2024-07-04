@@ -111,14 +111,19 @@ ul {
 
     /* Category Buttons */
     .category-menu li button.categoryButton {
-    display: flex;
-    background-color: rgb(136, 184, 89);
-    border: 1px solid #000000;
-    color: white;
-    padding: 12px 20px 12px 20px;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-size: 25px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+        display: flex;
+        background-color: rgb(136, 184, 89);
+        border: 1px solid rgb(136, 184, 89);
+        color: white;
+        padding: 12px 20px;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        font-size: 25px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
     }
+    
+    .category-menu li button.categoryButton:hover {
+        background-color: rgb(110, 160, 60);
+    }
+    
