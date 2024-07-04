@@ -1,12 +1,12 @@
 import React from 'react'
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import {useState, useEffect} from 'react';
 import axios from "axios";
 import CardGrid from '../Components/CardGrid/CardGrid';
 import CardModal from '../Components/CardModal/CardModal';
-import IconButton from '@mui/material/IconButton';
-import AddIcon from '@mui/icons-material/Add';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import Footer from '../Components/Footer/Footer'
+import BoardPageHeader from '../Components/BoardPageHeader/BoardPageHeader'
+import BoardPageNavBar from '../Components/BoardPageNavBar/BoardPageNavBar'
 
 const DEV_BASE_URL = "http://localhost:3000"
 
@@ -15,6 +15,7 @@ const BoardPage = () => {
   const [cards, setCards] = useState([]);
   const [board, setBoard] = useState([]);
   const [isCardModalOpen, setIsCardModalOpen]= useState(false);
+  const [boardTitle, setBoardTitle] = useState("");
 
   useEffect (() => {
     fetchBoardInfo();
@@ -27,6 +28,8 @@ const BoardPage = () => {
       const response = await axios.get(url);
       console.log(response.data);
       setBoard(response.data);
+      setBoardTitle(response.data.title);
+      console.log(response.data.title);
     }
     catch (error) {
       console.error("Error fetching board", error);
@@ -79,18 +82,12 @@ const BoardPage = () => {
   return (
     <>
     <div>
-        <h1>Board Page</h1>
-        <Link to="/">
-            {/* <button>Back</button> */}
-            <IconButton aria-label="go back">
-              <ArrowBackIcon />
-            </IconButton>
-        </Link>
-        {/* <button onClick={openCardModal}>Create Card</button> */}
-        <IconButton aria-label="add" className="addButton" onClick={openCardModal}>
-          <AddIcon />
-        </IconButton>
-
+        <BoardPageHeader
+          boardTitle={boardTitle}
+        />
+        <BoardPageNavBar
+          openCardModal={openCardModal}
+        />
         {isCardModalOpen && <CardModal closeCardModal={closeCardModal}
                 createNewCard={createNewCard}
                 />}
@@ -98,6 +95,7 @@ const BoardPage = () => {
           cards={cards}
           deleteCard={deleteCard}
         />
+        <Footer/>
     </div>
     
     </>

@@ -1,5 +1,6 @@
 import React from 'react'
 import Card from '../Card/Card'
+import './CardGrid.css'
 
 const CardGrid = ({cards, deleteCard}) => {
   return (

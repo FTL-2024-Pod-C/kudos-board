@@ -1,0 +1,5 @@
+.card-grid {
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: 20px;
+}
