@@ -1,5 +1,6 @@
 .boardPageButtons {
-    flex-direction: row;
-    justify-content: center;
-    
+    display: flex;
+    justify-content: space-evenly; /* centers items horizontally */
+    align-items: center; /* centers items vertically */
+    padding: 20px;
 }
