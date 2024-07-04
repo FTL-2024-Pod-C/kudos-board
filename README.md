@@ -47,7 +47,7 @@ Deployed Application (optional): [Kudos Board Deployed Site](ADD_LINK_HERE)
 
 ### Walkthrough Video
 
-`ADD_EMBEDDED_CODE_HERE`
+`https://youtu.be/tf8Z-hmN9jc?si=rj05m0RfyyCzPtG4`
 
 ### Reflection
 
