@@ -1,12 +1,9 @@
 import React from 'react'
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import {useState, useEffect} from 'react';
 import axios from "axios";
 import CardGrid from '../Components/CardGrid/CardGrid';
 import CardModal from '../Components/CardModal/CardModal';
-import IconButton from '@mui/material/IconButton';
-import AddIcon from '@mui/icons-material/Add';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import Footer from '../Components/Footer/Footer'
 import BoardPageHeader from '../Components/BoardPageHeader/BoardPageHeader'
 import BoardPageNavBar from '../Components/BoardPageNavBar/BoardPageNavBar'
