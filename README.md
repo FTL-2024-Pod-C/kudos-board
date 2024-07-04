@@ -21,13 +21,13 @@ Deployed Application (optional): [Kudos Board Deployed Site](ADD_LINK_HERE)
     - [ ] Boards should have a title, category, and author (optional).
   - [ ] User can delete boards.
   
-- [ ] **Board Page**
-  - [ ] Displays a list of all cards for a board.
-    -  [ ] Each card features a text message.
-    -  [ ] Each card features a gif found using the [GIPHY API](https://developers.giphy.com/docs/api/).
-    -  [ ] Users can optionally sign the card as the author.  
--   [ ] Cards can be upvoted.
--   [ ] Cards can be deleted.
+- [x] **Board Page**
+  - [x] Displays a list of all cards for a board.
+    -  [x] Each card features a text message.
+    -  [x] Each card features a gif found using the [GIPHY API](https://developers.giphy.com/docs/api/).
+    -  [x] Users can optionally sign the card as the author.  
+-   [x] Cards can be upvoted.
+-   [x] Cards can be deleted.
 
 
 #### STRETCH FEATURES
